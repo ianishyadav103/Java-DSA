@@ -31,7 +31,7 @@ public class J2_Array {
         System.out.println(binarySearch(sorted_arr,32,7));
 
 
-    //2D Array: jagged Array: don't specify column size hence each row contain null
+    //2D Array: jagged Array: don't specify column size hence each row contain null as nothing created
         int[][] arr2d = new int[3][];
         System.out.println(Arrays.toString(arr2d));
         System.out.println(arr2d.length);

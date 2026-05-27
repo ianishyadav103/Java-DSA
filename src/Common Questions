@@ -1,7 +1,15 @@
 =>ARRAY-------------------------------------------------------------
 -->Largest and Second Largest in array
---> reverse string
--->using both iterative and recursion: palindrome, Fibonacci, factorial
+-->reverse string
+-->using both iterative and recursion: palindrome, Fibonacci, factorial,anagram
 -->matrix multiplication
 -->sparse matrix tri-node
 -->transpose
+-->3pointing sorting/Dutch National Flag
+
+=>Numbers
+-->Bit Operations
+
+
+=>String
+-->Upper/Lower ie common ASCII values
