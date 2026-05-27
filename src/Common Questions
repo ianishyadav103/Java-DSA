@@ -6,10 +6,15 @@
 -->sparse matrix tri-node
 -->transpose
 -->3pointing sorting/Dutch National Flag
+-->Prefix Sum, Two Pointer, Sliding Window, Kadane’s Algorithm
 
-=>Numbers
+=>Bit-----------------------------------------------------------------
 -->Bit Operations
 
 
-=>String
+=>String---------------------------------------------------------------
 -->Upper/Lower ie common ASCII values
+-->KMP, Rabin-Karp
+
+=>LL------------------------------------------------------------------
+-->
