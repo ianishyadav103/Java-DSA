@@ -20,22 +20,33 @@ class SingleLL{
 
     }
     //dont do this, just experimenting OOPS
-class SingleCircular extends SingleLL{  //next of last points first
+class SingleCircular {  //next of last points first
+    int val;
+    SingleCircular next;
     SingleCircular(int val){
-        super(val);
+        this.val = val;
     }
 }
 
-class DoubleCircular extends DoubleLL{ //prev of first point to last and next to last to first
+
+class CircularLL {
+    SingleCircular head;
+    SingleCircular tail;
+}
+
+class DoubleCircular{ //prev of first point to last and next to last to first
+    int val;
+    DoubleLL prev;
+    DoubleLL next;
     DoubleCircular(int val){
-        super(val);
+        this.val = val;
     }
 }
 
 public class J6_LinkedList {
 
 
-    static void main(String[] args) {
+    static void main() {
 
         //Single LL use---------------------------------------------------
         SingleLL start = null;
@@ -51,22 +62,18 @@ public class J6_LinkedList {
 
         //Duble LL use-----------------------------------------------------
         DoubleLL front = null;
-        DoubleLL last = null;
-        //operations: insertBefore
-        //insert at last
-        //reverse traverse
+        DoubleLL last = null; //optional: based on requirement
+
 
         //Single Circular LL use-----------------------------------------------------
-        SingleCircular startSCLL = null;
-        //operations: insert at begin
-        //delete last
-        //circular traversal
-        //search
+        CircularLL cll = new CircularLL();
+        insertAtBegin(12,cll);
+        insertAtBegin(14,cll);
+        insertAtBegin(13,cll);
+        deleteLast(cll);
+        searchSingleCircular(cll,12);
 
 
-        //Duble Circular LL use-----------------------------------------------------
-        DoubleCircular startDCLL = null;
-        //operations:
 
     }
     //Single LL functions---------------------------------------------------
@@ -152,8 +159,115 @@ public class J6_LinkedList {
     }
 
     //Double LL functions---------------------------------------------------
+    static DoubleLL insertBefore(int dat,int key,DoubleLL start){
+        DoubleLL temp = start;
+        if(start != null){
+            DoubleLL newnode = new DoubleLL(11);
+            if(start.val==key){
+                newnode.next = start;
+                start.prev = newnode;
+                start = newnode;
+                return start;
+            }
+            while (temp.next!=null){
+                if(temp.next.val==key){
+                    newnode.next = temp.next;
+                    newnode.prev = temp;
+                    temp.next.prev = newnode;
+                    temp.next = newnode;
+
+                    return start;
+                }
+                temp = temp.next;
+            }
+
+        }
+        System.out.println("Key not found");
+        return start;
+    }
+
+    //reverse traverse
+    void doubleLLReverseTraverse(DoubleLL last){
+        if (last==null){
+            System.out.println("LL Empty");
+            return;
+        }
+        while (last!=null){
+            System.out.println(last.val);
+            last = last.prev;
+        }
+    }
+
     //Single Circular LL functions---------------------------------------------------
-    //Double Circular LL functions---------------------------------------------------
+
+    static void insertAtBegin(int dat,CircularLL cll) {
+        SingleCircular newnode = new SingleCircular(dat);
+        if (cll.head!= null) {
+            newnode.next = cll.head;
+            cll.tail.next = newnode;
+            cll.head = newnode;
+
+        }
+        else {
+            cll.head = newnode;
+            newnode.next = newnode;
+            cll.tail = newnode;
+        }
+
+
+    }
+    static void deleteLast(CircularLL cll){
+        if (cll.head==null){
+            System.out.println("Can;t delete as empty");
+
+        }
+        else {
+            SingleCircular temp = cll.head;
+            SingleCircular prev = null;
+
+            while (temp != cll.tail) {
+                prev = temp;
+                temp = temp.next;
+
+            }
+            if (prev == null) {
+                cll.head = null;
+                cll.tail = null;
+                System.out.println("Deleted");
+            }
+            else {
+                prev.next = cll.head;
+                cll.tail = prev;
+
+            }
+        }
+    }
+
+    static void searchSingleCircular(CircularLL cll,int key){
+        if(cll.head != null){
+            if(cll.tail.val == key){
+                System.out.println("Key found");
+                return;
+            }
+            SingleCircular temp = cll.head;
+            while (temp!=cll.tail){
+                if (temp.val == key){
+                    System.out.println("Key found");
+                    return;
+                }
+                temp = temp.next;
+            }
+
+        }
+
+            System.out.println("Key not found");
+
+
+
+
+    }
+
+
 
 
 }
