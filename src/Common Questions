@@ -17,4 +17,29 @@
 -->KMP, Rabin-Karp
 
 =>LL------------------------------------------------------------------
--->
+-->reverse LL
+-->middle node
+-->remove duplicates
+-->detect cycle
+-->merge sorted lists
+-->remove nth node
+-->reverse in groups
+-->copy random pointer
+-->flatten linked list
+
+=>Stack-------------------------------------------------------------------
+--->balanced parentheses
+-->next greater element
+-->min stack
+-->expression evaluation:infix,prefix,postfix
+-->stack using queue
+-->DFS
+-->stack using queue
+
+=>Queue-------------------------------------------------------------------
+-->BFS
+-->queue using stacks
+-->rotten oranges
+-->queue using stack
+
+=>Hashing-----------------------------------------------------------------

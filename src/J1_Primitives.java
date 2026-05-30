@@ -1,5 +1,22 @@
 void main() {
 
+    /*
+                      Data Structures
+                             │
+             ┌───────────────┴───────────────┐
+             ▼                               ▼
+           Linear                         Non-Linear
+             │                               │
+       ┌─────┴─────┐           ┌─────────────┼─────────────┐
+       ▼           ▼           ▼             ▼             ▼
+     Static      Dynamic      Trees        Graphs      Hash Tables
+       │           │           │             │             │
+       └►Array     ├►List      ├►Binary      ├►Directed    ├►HashMap
+                   ├►Stack     ├►BST         ├►Undirected  └►HashSet
+                   └►Queue     ├►AVL/RB      └►Weighted
+                               └►B/B+ Tree
+
+     */
     // 1. Integer Types (Whole numbers)
     byte byteVar = 127;                   // 1 byte: 8 bits => 2^8-1 = 127
     short shortVar = 32767;               // 2 bytes
