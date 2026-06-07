@@ -20,6 +20,7 @@ public class J10_AdvancedSorting{
     System.out.println(Arrays.toString(practiceRecursiveDivideUnitilSingleMergeSort(arrz1)));
 
     //Standard Merge sort using recursion with a standard merge function--------------------------
+            //Convention: mid is part of left array and high included
         int[] arrz2 = {6,5,4,2,4,3,4,33,4,22,1,2,32,1};
     recursiveMergeSort(arrz2,0,arrz2.length-1);
 
