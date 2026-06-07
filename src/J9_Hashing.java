@@ -94,11 +94,15 @@ public class J9_Hashing {
         //->hash function: find index for string data by processing key
         /*->collision handling mechanism:
              -->chaining: Linked List: for each bucket
-             -->open addressing: Linear Probing: use next available bucket*/
+             -->open addressing: Linear Probing: use next available bucket i.e. ind = current_index + 1 then +2 then +3...;cause clustering: all become occupied.
+                               : Quadratic Probing: i.e. ind = current_index + 1^2 then +2^2 then +3^2...; Reduces Clustering
+                               : Second Hash Function:  Use a second hash function to find the next location.
+                                                        :newIndex = (h1(key) + i × h2(key)) % tableSize, where i is 0 to size-1
+                               */
         /*Load Factor: Measures how full hash table is: stored elements/total buckets but this doest tell if individual bucket has many elements hence to avoid this in java first rehash occurs till size becomes 64 and after which if any bucket has more than 8 elements, that bucket converted to Red-Black Tree (a self-balancing binary search tree).*/
         //Same Key: Update Value;
         //Same bucket: collision
-        //Rehashing: increase bucket count: as new size, all key must be restored
+        //Rehashing: increase bucket count: as new size, all key must be again stored
         //Bucket: for storing data/first data
         /*bucket initial size: (total element expected/0.75)+1=>then closes to power2. e.g. -> 50->67.6=128(64 is smaller hence 64*2)*/
 
