@@ -3,7 +3,7 @@ import java.util.Arrays;
 //Merge Sort: TC: O(n log n), SC: O(n), Stable(does it maintain original order when similar keys): Yes
 
 
-public class J10_AdvancedSorting{
+public class J10_AdvancedSortMerge {
     static void main() {
     //Function For Combining Two Sorted Arrays--------------------------------------
     int[] ar1 = {1,2,2,3,4,33,33,44,55};

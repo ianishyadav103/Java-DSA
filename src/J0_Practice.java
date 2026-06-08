@@ -1,54 +1,91 @@
 import java.util.Arrays;
+import java.util.Random;
 
 public class J0_Practice {
-    static void main() {
-    int[] arr = {5,4,3,6,1};
-//    merge(arr,3,4,4);
 
-        mergeSort(arr,0,arr.length-1);
+    static Random random = new Random();
 
-        System.out.println(Arrays.toString(arr));
+    public static void main(String[] args) {
 
+        for (int test = 1; test <= 1_000_00000; test++) {
 
-    }
-    static void mergeSort(int[] arr,int low,int high){
-        if (low<high){
-            int mid = (low + high+1)/2;
+            int size = random.nextInt(19) + 2;
 
-            mergeSort(arr,low,mid-1);
-            mergeSort(arr,mid,high);
+            int[] arr = new int[size];
 
-           merge(arr,low,mid,high);
-
-        }
-    }
-
-    static void merge(int[] arr, int low,int mid, int high){
-        int left = low;
-        int right = mid;
-        int[] temp = new int[high-low+1];
-        int k=0;
-        while (left < mid && right<=high){
-            if (arr[left]<arr[right]){
-                temp[k++] = arr[left++];
+            for (int i = 0; i < size; i++) {
+                arr[i] = random.nextInt(20);
             }
-            else {
-                temp[k++] = arr[right++];
+
+            int[] copy = arr.clone();
+
+            int pivotIndex = myPartition(copy);
+
+            if (!isValidPartition(copy, pivotIndex)) {
+
+                System.out.println("FAILED");
+                System.out.println(Arrays.toString(arr));
+                System.out.println(Arrays.toString(copy));
+                System.out.println("pivot=" + pivotIndex);
+
+                return;
             }
         }
-        while (left<mid){
-            temp[k++] = arr[left++];
-        }
-        while (right<=high){
-            temp[k++] = arr[right++];
 
-        }
-        k=0;
-        for (int i = low; i <= high; i++) {
-            arr[i] = temp[k++];
-        }
+        System.out.println("PASSED 1,000,000 TESTS");
     }
 
+    static boolean isValidPartition(int[] arr, int pivotIndex) {
+
+        int pivot = arr[pivotIndex];
+
+        for (int i = 0; i < pivotIndex; i++) {
+            if (arr[i] > pivot) {
+                return false;
+            }
+        }
+
+        for (int i = pivotIndex + 1; i < arr.length; i++) {
+            if (arr[i] <= pivot) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+    static int myPartition(int[] arr) {
+
+        if (arr.length <= 1) {
+            return 0;
+        }
+
+        int pivot = arr[arr.length - 1];
+
+        int i = 0;
+        int j = arr.length - 2;
+
+        while (i < j) {
+
+            if (arr[i] <= pivot) {
+                i++;
+            } else {
+
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+
+                j--;
+            }
+        }
+
+        if (arr[i] <= pivot) {
+            i++;
+        }
+
+        int temp = arr[i];
+        arr[i] = pivot;
+        arr[arr.length - 1] = temp;
+
+        return i;
+    }
 }
-
-
