@@ -13,8 +13,9 @@ void main() {
        │           │           │             │             │
        └►Array     ├►List      ├►Binary      ├►Directed    ├►HashMap
                    ├►Stack     ├►BST         ├►Undirected  └►HashSet
-                   └►Queue     ├►AVL/RB      └►Weighted
-                               └►B/B+ Tree
+                   └►Queue     ├►Ternery Tree└►Weighted
+                               ├►N-ary Tree
+                               └►Special Tree
 
      */
     // 1. Integer Types (Whole numbers)

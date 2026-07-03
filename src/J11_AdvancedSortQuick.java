@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class J10_AdvancedSortQuick {
+public class J11_AdvancedSortQuick {
     static void main() {
         //Quick Sort: TC: 0(n^2) SC: O(log n), Stable: No
 
