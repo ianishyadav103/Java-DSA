@@ -38,7 +38,7 @@ TYPES:
    ├─ Complete Binary Tree: Every level full except possibly last and Last level fills from left to right
    └─ Balanced Binary Tree: Difference between the height of the left and the right subtree for each node is either 0 or 1.
 
-2. Binary Search Trees (BST)
+2. Binary Search Trees (BST): left < root < right
    ├─ Simple BST
    ├─ AVL Tree
    ├─ Red-Black Tree
