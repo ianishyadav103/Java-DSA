@@ -23,19 +23,52 @@ class BST{
         }
     }
 
-    static NodeBT insert(NodeBT root,int value){
+    static NodeBT insertUsingRecursion(NodeBT root,int value){
+        //I don't like this recursion unwinding after assigning which is unnecessary.
         if (root == null){
             return new NodeBT(value);
         } else if (value<= root.data) {
-         root.left = insert(root.left,value);
+         root.left = insertUsingRecursion(root.left,value);
+
         }
         else {
-         root.right = insert(root.right,value);
+         root.right = insertUsingRecursion(root.right,value);
         }
     return root;
     }
 
-    void delete(int val) { }
+    //Search
+    static NodeBT bstSearch(int val,NodeBT root){
+        if (root ==null){
+            System.out.println("Not found, returning null");
+            return null;
+        }
+         if ( val==root.data ){
+            System.out.println("Found");
+            return root;
+        }
+        else if (val<root.data) {
+            return bstSearch(val,root.left);
+
+        }
+        else {
+            return bstSearch(val,root.right);
+        }
+
+
+    }
+
+
+
+    //DELETE: Two ways: what replaces deleted node:-
+    // -->Predecessor   → maximum of left subtree
+    //OR
+    // -->Successor     → minimum of right subtree
+    NodeBT delete(NodeBT root,int val) {
+return root;
+
+
+    }
 
     static NodeBT max(NodeBT node) {
         if (node.right==null){
@@ -61,7 +94,7 @@ class BST{
 
             NodeBT obj = new NodeBT(13);
             BST.insertIterative(12,obj);
-            BST.insert(obj,14);
+            BST.insertUsingRecursion(obj,14);
 
             NodeBT.preorderTraversal(obj);
 

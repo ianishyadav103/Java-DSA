@@ -2,9 +2,6 @@
     int data;
     NodeBT left;
     NodeBT right;
-     NodeBT() {
-
-     }
     NodeBT(int data) {
         this.data = data;
     }
@@ -28,7 +25,6 @@
          }
          inorderTraversal(root.left);
          System.out.println(root.data);
-
          inorderTraversal(root.right);
 
      }
@@ -40,7 +36,6 @@
              return;
          }
          postTraversal(root.left);
-
          postTraversal(root.right);
          System.out.println(root.data);
 
