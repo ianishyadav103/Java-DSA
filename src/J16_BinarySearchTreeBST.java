@@ -65,8 +65,75 @@ class BST{
     //OR
     // -->Successor     → minimum of right subtree
     NodeBT delete(NodeBT root,int val) {
-return root;
+        if (root == null){
+            System.out.println("No data in BST, cant delete");
+            return null;
+        }
 
+        //finding node to be deleted and its parent
+        NodeBT delete_par = null;
+        NodeBT delete_node = root;
+        while (delete_node!=null && delete_node.data!=val){
+            delete_par = delete_node;
+            if (val<delete_node.data){
+                delete_node = delete_node.left;
+            }
+            else {
+                delete_node = delete_node.right;
+            }
+
+        }
+    if (delete_node ==null){
+        System.out.println("Delete failed, no data found");
+        return root;
+
+    }
+    if (delete_node.left!=null && delete_node.right!=null){
+        NodeBT leftmostPar = delete_node;
+        NodeBT leftmostNode = delete_node.right;
+        while (leftmostNode.left!=null){
+            leftmostPar = leftmostNode;
+            leftmostNode = leftmostPar.left;
+        }
+        root.data = leftmostNode.data;
+        if (leftmostPar==delete_node){
+            leftmostPar.right = leftmostNode.right;
+        }
+        else {
+            leftmostPar.left = leftmostNode.right;
+
+        }
+
+        return  root;
+    }
+
+    //this tells whether 0 or 1 children: 0 if child null
+    NodeBT child; //either left or right or null is assigned to child
+    if (delete_node.left != null){
+        child = delete_node.left;
+        
+    }else {
+        child = delete_node.right;
+
+    }
+
+
+
+    //for root deletion for children < 2
+    if (delete_par == null){
+        return child;
+    }
+
+    //for non-root deletion for children < 2
+    if (delete_par.left == delete_node){
+        delete_par.left =child;
+    }
+    else {
+        delete_par.right = child;
+    }
+
+
+   return root;
 
     }
 
