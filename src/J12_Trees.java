@@ -20,11 +20,11 @@ public class J12_Trees {
       *
       * * Trees
      │
-     ├► Binary Tree (Max 2 children)
-     ├► BST (Binary Search Tree - ordered)
+     ├► Binary Tree (Max 2 children).
+     ├► BST (Binary Search Tree - ordered).
      ├► AVL / Red-Black Tree (Self-balancing BSTs)
      ├► Ternary Tree (Max 3 children)
-     ├► N-ary Tree (Generic Tree - variable children)
+     ├► N-ary Tree (Generic Tree - variable children).
      ├► B / B+ Tree (Self-balancing m-way search trees)
      ├► Trie (Prefix tree for strings)
      └► Special Trees: Segment Tree, Fenwick/BIT,Huffman Tree, Heaps
@@ -40,28 +40,28 @@ TYPES:
 
 2. Binary Search Trees (BST): left < root < right
    ├─ Simple BST
-   ├─ AVL Tree
+   ├─ AVL Tree: self-balancing BST
    ├─ Red-Black Tree
-   └─ Splay Tree
+   └─ Splay Tree: moves recently accessed nodes toward the root.
 
-3. Heaps (Specialized Complete Binary Trees)
-   ├─ Min Heap
-   └─ Max Heap
+3. Heaps (Specialized Complete Binary Trees)-
+   ├─ Min Heap: smallest value in root
+   └─ Max Heap: largest value in root
 
 4. Multi-way Trees (More than 2 children)
    ├─ Ternary Tree (3 children)
    └─ N-ary Tree
 
 5. Search Trees for Databases/Storage
-   ├─ B-Tree
-   └─ B+ Tree
+   ├─ B-Tree: databases and storage systems.
+   └─ B+ Tree: indexing
 
 6. Prefix Trees
-   └─ Trie
+   └─ Trie: Efficiently store/search strings based on prefixes-
 
 7. Special Trees
-   ├─ Fenwick Tree (Binary Indexed Tree)
-   ├─ Segment Tree
+   ├─ Fenwick Tree (Binary Indexed Tree)-
+   ├─ Segment Tree-
    └─ Huffman Tree
 */
     }

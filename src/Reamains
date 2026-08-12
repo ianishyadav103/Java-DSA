@@ -1,6 +1,4 @@
--->Types of Problem Solving techniques like backtracking , divide and conquer, dynamic programming, brute force etc
 -->Do Priority Queue after learning heap
--->Memorize all necessary only TC and SC for interview purpose only
--->Data types in JAVA that help like vector for generic tree(only necessary).
--->Practice with existing DS for quick implementation in interview.
-
+-->Memorize with understanding:  all necessary only TC and SC for interview purpose only
+-->Practice with existing DS library for quick implementation in interview.
+-->AVL and RedBlack Concept only
