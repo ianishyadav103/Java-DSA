@@ -142,7 +142,7 @@ class CircularQueueArr{
 }
 
 class PriorityQueueArr{
-//LL implementation: both singly and doubly can be used
+    //priority queue: element accessed based on priority using heap
 }
 
 class Queuell{
