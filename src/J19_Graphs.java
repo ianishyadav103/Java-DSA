@@ -70,8 +70,8 @@
 class UndirectedGraphAdjacencyMatrix{ //can be directed if notes applied
     //1 if edge exist else 0
 
-    private int[][] adjMatrix;
-    private int vertices;
+     int[][] adjMatrix;
+     int vertices;
 
     public UndirectedGraphAdjacencyMatrix(int vertices) {
         this.adjMatrix = new int[vertices][vertices];
@@ -117,7 +117,7 @@ class UndirectedGraphAdjacencyMatrix{ //can be directed if notes applied
 //ADJACENCY LIST Implementation using ll (commonly arraylist used)
 
 class AdjListLLUndirectedGraph{
-    private int vertices;
+     int vertices;
     class AdjListLLNode{
         int vertex;
         AdjListLLNode next;
@@ -125,7 +125,7 @@ class AdjListLLUndirectedGraph{
             this.vertex = vertex;
         }
     }
-    private AdjListLLNode[] edgenodes;
+     AdjListLLNode[] edgenodes;
 
     public AdjListLLUndirectedGraph(int vertices ) {
         this.vertices = vertices;
@@ -205,7 +205,30 @@ class AdjListLLUndirectedGraph{
         }
     }
 }
+class AdjListLLDirectedGraph{
+    int vertices;
+    class AdjListLLNode{
+        int vertex;
+        AdjListLLNode next;
+        AdjListLLNode(int vertex) {
+            this.vertex = vertex;
+        }
+    }
+    AdjListLLNode[] edgenodes;
 
+    public AdjListLLDirectedGraph(int vertices ) {
+        this.vertices = vertices;
+        edgenodes = new AdjListLLNode[vertices];
+    }
+    public void addEdge(int u,int v){
+        AdjListLLNode newnode = new AdjListLLNode(v);
+        newnode.next  =  edgenodes[u];
+        edgenodes[u] = newnode;
+
+
+
+
+    }}
 
 public class J19_Graphs {
     static void main() {
