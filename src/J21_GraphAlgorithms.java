@@ -87,6 +87,86 @@ class GraphAlgorithms{
 
         System.out.println(Arrays.toString(result));
     }
+    //All vertex distance rom source
+    static void shortestDistanceForALLBFS(AdjListLLDirectedGraph graph,int start){
+        Queue<Integer> to_visit = new ArrayDeque<>();
+        int[] distance = new int[graph.vertices];;
+        Arrays.fill(distance, -1);  //if discnnedted then use this so -1 for unreachable
+
+        boolean[] visited = new boolean[graph.vertices];
+
+        int vertex = start;
+        to_visit.add(vertex);
+        visited[vertex] = true;
+        distance[start] = 0;
+        while (!to_visit.isEmpty()){
+            vertex = to_visit.poll();
+            AdjListLLDirectedGraph.AdjListLLNode temp = graph.edgenodes[vertex];
+            while (temp!=null){
+                if (!visited[temp.vertex]){
+                    to_visit.add(temp.vertex);
+                    visited[temp.vertex] = true;
+                    distance[temp.vertex] =
+                            distance[vertex] + 1;
+                }
+                temp = temp.next;
+            }
+        }
+        System.out.println(Arrays.toString(distance));
+    }
+
+    //Shorted path from A to B
+        static void shortestPathBFS(AdjListLLDirectedGraph graph,int start,int dest){
+        boolean found = false;
+            Queue<Integer> to_visit = new ArrayDeque<>();
+            int[] distance = new int[graph.vertices];
+            Arrays.fill(distance, -1);
+            boolean[] visited = new boolean[graph.vertices];
+            int[] parent = new int[graph.vertices];
+            Arrays.fill(parent, -1);
+
+            int vertex = start;
+            to_visit.add(vertex);
+            visited[vertex] = true;
+            distance[start] = 0;
+            while (!to_visit.isEmpty() && !found){
+                vertex = to_visit.poll();
+                AdjListLLDirectedGraph.AdjListLLNode temp = graph.edgenodes[vertex];
+                while (temp!=null){
+                    if (!visited[temp.vertex]){
+                        parent[temp.vertex] = vertex; //who discovered me (automatically who discovered me first)
+
+                        distance[temp.vertex] = distance[vertex] + 1;
+                        to_visit.add(temp.vertex);
+                        visited[temp.vertex] = true;
+                        if (dest == temp.vertex){ //if we dont break then using path we can get shortest path of all
+                            found = true;
+                            break;
+                        }
+
+
+
+                    }
+                    temp = temp.next;
+                }
+            }
+            if (distance[dest] == -1) {
+                System.out.println("No path exists");
+                return;
+            }
+
+            // Print shortest distance
+            System.out.println("Distance: " + distance[dest]);
+
+            int current = dest;
+            while (current != -1) { //-1 to stop at start(no one discovered it) //can use start also with additional start print
+                System.out.print(current + " ");
+                current = parent[current];
+            }
+
+            System.out.println();
+
+        }
 
 }
 
@@ -107,6 +187,12 @@ public class J21_GraphAlgorithms {
             GraphAlgorithms.connectedtoposortDFS(g);
             //2. Kan'h Method
             GraphAlgorithms.topoSortBFSKahnAlgo(g);
+
+       //Shortest Parth
+        //1. BFS
+        GraphAlgorithms.shortestDistanceForALLBFS(g,0);
+        GraphAlgorithms.shortestPathBFS(g,0,3);
+
 
     }
 }
