@@ -230,6 +230,35 @@ class AdjListLLDirectedGraph{
 
     }}
 
+class WeightedAdjListLLUndirectedGraph extends AdjListLLUndirectedGraph {
+
+    public WeightedAdjListLLUndirectedGraph(int vertices) {
+        super(vertices);
+    }
+
+    class WeightedAdjListLLNode extends AdjListLLNode {
+        int weight;
+
+        WeightedAdjListLLNode(int vertex, int weight) {
+            super(vertex);
+            this.weight = weight;
+        }
+    }
+
+    // Overload addEdge to handle weights in both directions for undirected graphs
+    public void addEdge(int u, int v, int weight) {
+        // Add v to u's list
+        WeightedAdjListLLNode newNode1 = new WeightedAdjListLLNode(v, weight);
+        newNode1.next = edgenodes[u];
+        edgenodes[u] = newNode1;
+
+        // Add u to v's list
+        WeightedAdjListLLNode newNode2 = new WeightedAdjListLLNode(u, weight);
+        newNode2.next = edgenodes[v];
+        edgenodes[v] = newNode2;
+    }
+}
+
 public class J19_Graphs {
     static void main() {
         UndirectedGraphAdjacencyMatrix ugam1 = new UndirectedGraphAdjacencyMatrix(3);
